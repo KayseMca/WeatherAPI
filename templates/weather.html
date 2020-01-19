@@ -1,0 +1,18 @@
+{% extends "./partial/header.html" %}
+{% block content %}
+<body>
+    <div class="center-on-page"> 
+        <h1>Weather in a City</h1>
+        <form class="form-inline" method="POST" action="{{url_for('result')}}">
+            <div  class="select">
+                <select name="data"  class="selectpicker form-control">
+                    {% for veri in data %}
+                    <option value="{{veri.name}}">{{veri.name}}</option>
+                    {% endfor %}
+                    </select>
+            </div>
+            <button>Go</button>
+        </form>
+    </div>
+
+    {% endblock %}

@@ -1,0 +1,18 @@
+{% extends "./partial/header.html" %}
+
+{% block content%}
+    <div class="center-on-page">
+        
+        {% for d in data %}
+        <h1> natiijada cimilada magaalada <span style="color: burlywood;">{{d['name']}}</span></h1>
+        {% set my_string = "static/img/" + d['weather'][0]['icon']+ ".svg" %}
+        <h1>  <img src="{{ my_string }}" class="svg" fill="white" height="100" vertical-align="middle" width="100"> </h1> 
+         <h1>Weather</h1> 
+        <h1>{{ d['name'] }}, {{ d['sys']['country'] }}</h1>   
+        <h1>{{ d['main']['temp']|round|int}} °C</h1>
+        <h1>{{ d['description']}}</h1>
+        {%endfor%}
+        <a href="{{url_for('index')}}"><button class="btn btn-primary">Go Back</button></a>
+    </div>
+    
+    {% endblock %}
